@@ -195,8 +195,6 @@ function displayMessaages() {
 
    
     var staffMessages = document.querySelectorAll(".staff-msg");
-
-    
     var page4Text = document.querySelector(".page4-text");
 
     staffMessages.forEach(function (staffMessage) {
@@ -211,12 +209,17 @@ function displayMessaages() {
             var staffId = staffMessage.id;
 
             page4Text.innerText = customMessages[staffId];
-            gsap.from(".page4-text",{
+            gsap.fromTo(".page4-text",
+            {
                 y:30,
                 opacity:0,
-                delay:0.3,
+                delay:0.5,
                 duration:0.3,
                 stagger:0.1
+            },
+            {
+                y:0,
+                opacity:1
             })
         });
     });
